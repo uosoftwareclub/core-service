@@ -1,0 +1,49 @@
+{
+  "name": "core-service",
+  "version": "1.0.0",
+  "description": "The core api service that powers UOSC's data driven applications",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "./node_modules/.bin/nodemon src/index.js",
+    "lint": "./node_modules/.bin/eslint **/*.js",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --exit"
+  },
+  "keywords": [],
+  "author": "UOSC Dev Team",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.3.0",
+    "cross-env": "^5.1.3",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.0.1",
+    "nodemon": "^1.14.12"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "express-validation": "^1.0.2",
+    "helmet": "^3.21.1",
+    "http-status": "^1.0.1",
+    "joi": "^13.1.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.7",
+    "mongoose-error-handler": "^1.0.0",
+    "morgan": "^1.9.0",
+    "mustache": "^3.0.1",
+    "nodemailer": "^6.2.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "uuid": "^3.3.2"
+  }
+}
