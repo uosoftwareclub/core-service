@@ -13,3 +13,33 @@
 
 - Make sure you have installed `Docker` and `Docker Compose`
 - Just run `docker-compose up` to start the server
+
+## User Data Object
+```
+{
+  _id: String,
+  created_at: TimeStamp,
+  updated_at: TimeStamp,
+  profile_picture: String,
+  title: String,
+  badges: [enum],
+  firstname: String,
+  lastname: String,
+  username: String,
+  description: String,
+  rank: [{
+    contest_number: Integer,
+    placing: Integer
+  }]
+}
+```
+
+## Contest Data Ojbect
+```
+{
+  _id: String,
+  week: String,
+  contest_number: Integer,
+  ranks: [String],
+}
+```
