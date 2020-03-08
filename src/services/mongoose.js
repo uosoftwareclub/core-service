@@ -1,4 +1,4 @@
-'use strict'
+
 
 const config = require('../config')
 const mongoose = require('mongoose')
@@ -18,7 +18,7 @@ if (config.env === 'dev') {
 }
 
 exports.connect = () => {
-  var mongoURI = (config.env === 'prod' || 'dev' ? config.mongo.uri : config.mongo.testURI)
+  const mongoURI = (config.env === 'prod' || 'dev' ? config.mongo.uri : config.mongo.testURI)
 
   mongoose.connect(mongoURI, {
     keepAlive: 1,
