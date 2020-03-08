@@ -4,7 +4,8 @@ process.env.NODE_ENV = 'test'
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const app = require('../src/index').app
-const expect = chai.expect;
+
+const expect = chai.expect
 
 chai.use(chaiHttp)
 
@@ -14,7 +15,7 @@ describe('Application', () => {
       .request(app)
       .get('/v0/status')
       .end((_err, res) => {
-        expect(res.status).to.equal(200);
+        expect(res.status).to.equal(200)
         done()
       })
   })
@@ -24,7 +25,7 @@ describe('Application', () => {
       .request(app)
       .get('/something/not/exists')
       .end((_err, res) => {
-        expect(res.status).to.equal(404);
+        expect(res.status).to.equal(404)
         done()
       })
   })
