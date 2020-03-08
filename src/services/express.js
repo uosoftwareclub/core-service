@@ -14,9 +14,11 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
 
+
+const apiVersion = 'v0';
 if (config.env !== 'test') app.use(morgan('combined'))
 
-app.use('/api', apiRouter)
+app.use(`/${apiVersion}`, apiRouter)
 app.use(errorHandler.handleNotFound)
 app.use(errorHandler.handleError)
 
