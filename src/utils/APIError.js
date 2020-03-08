@@ -1,4 +1,4 @@
-'use strict'
+
 const httpStatus = require('http-status')
 
 module.exports = function APIError (message, status = httpStatus.INTERNAL_SERVER_ERROR, extra = null) {
