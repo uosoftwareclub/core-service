@@ -20,6 +20,10 @@ if (config.env === 'dev') {
 exports.connect = () => {
   const mongoURI = (config.env === 'prod' || 'dev' ? config.mongo.uri : config.mongo.testURI)
 
+  if (!mongoURI) {
+    return null;
+  }
+  
   mongoose.connect(mongoURI, {
     keepAlive: 1,
     useNewUrlParser: true,
