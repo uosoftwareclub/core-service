@@ -8,21 +8,17 @@ const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const errorHandler = require('../middlewares/error-handler')
 const apiRouter = require('../routes/api')
-const passport = require('passport')
-const passportJwt = require('../services/passport')
 
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
 app.use(helmet())
 
+
+const apiVersion = 'v0';
 if (config.env !== 'test') app.use(morgan('combined'))
 
-// passport
-app.use(passport.initialize())
-passport.use('jwt', passportJwt.jwt)
-
-app.use('/api', apiRouter)
+app.use(`/${apiVersion}`, apiRouter)
 app.use(errorHandler.handleNotFound)
 app.use(errorHandler.handleError)
 
