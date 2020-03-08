@@ -1,7 +1,9 @@
 'use strict'
 
-const User = require('../models/user.model')
-const passport = require('passport')
+/*
+TODO: Update this to fit our authorization purpose
+*/
+
 const APIError = require('../utils/APIError')
 const httpStatus = require('http-status')
 const bluebird = require('bluebird')
