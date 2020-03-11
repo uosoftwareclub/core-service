@@ -5,7 +5,6 @@
  */
 
 const path = require('path');
-
 const dotenv = require('dotenv');
 const { createLogger, format, transports } = require('winston');
 

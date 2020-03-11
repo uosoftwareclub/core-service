@@ -1,13 +1,13 @@
 
 
-const config = require('../config')
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
-const errorHandler = require('../middlewares/error-handler')
 const apiRouter = require('../routes/api')
+const errorHandler = require('../middlewares/error-handler')
+const config = require('../config')
 
 const app = express()
 app.use(bodyParser.json())
