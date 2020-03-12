@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const titles = require('../enums/enums.titles');
+const badges = require('../enums/enums.badges');
 
 const Schema = mongoose.Schema;
 
@@ -9,12 +11,12 @@ const userSchema = new Schema({
   },
   title: {
     type: String,
-    default: 'New Member'
-    // TODO: Enumify
+    default: 'New Member',
+    enum: titles
   },
   badges: {
     type: String,
-    enum: ['Founding', 'Exec', 'Good', 'General'], // TODO: Figure out badges and enumify
+    enum: badges, // TODO: Figure out badges and enumify
     default: 'General'
   },
   firstname: {
@@ -45,6 +47,6 @@ const userSchema = new Schema({
   }]
 }, {
   timestamps: true
-})
+});
 
 module.exports = mongoose.model('User', userSchema);
