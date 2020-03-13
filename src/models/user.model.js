@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const titles = require('../enums/enums.titles');
+const badges = require('../enums/enums.badges');
 
 const Schema = mongoose.Schema;
 
@@ -8,14 +10,14 @@ const userSchema = new Schema({
     // TODO: Set default avatar picture
   },
   title: {
-    type: String,
-    default: 'New Member'
-    // TODO: Enumify
+    type: [String],
+    default: ['New Member'],
+    enum: titles
   },
   badges: {
-    type: String,
-    enum: ['Founding', 'Exec', 'Good', 'General'], // TODO: Figure out badges and enumify
-    default: 'General'
+    type: [String],
+    enum: badges,
+    default: ['General']
   },
   firstname: {
     type: String,
@@ -29,6 +31,18 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'You have to add a username'],
     unique: true
+  },
+  graduation: {
+    type: Object,
+    required: [true, 'You have to add a graduation date.'],
+    year: {
+      type: Number,
+      required: [true, 'Year is needed for graduation.']
+    },
+    month: {
+      type: String,
+      required: [true, 'Month is needed for graduation.']
+    }
   },
   description: {
     type: String
@@ -45,6 +59,6 @@ const userSchema = new Schema({
   }]
 }, {
   timestamps: true
-})
+});
 
 module.exports = mongoose.model('User', userSchema);

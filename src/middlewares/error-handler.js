@@ -21,3 +21,12 @@ exports.handleError = (err, req, res, next) => {
   })
   res.end()
 }
+
+exports.handleMongoError = (err, req, res, next) => {
+  res.status(409)
+  res.json({
+    message: err.errmsg,
+    code: err.code
+  })
+  res.end()
+}
