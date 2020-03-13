@@ -1,1 +1,1 @@
-module.exports = ['Founding'];
+module.exports = ['Founding', 'General'];
