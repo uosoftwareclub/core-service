@@ -11,13 +11,13 @@ const userSchema = new Schema({
   },
   title: {
     type: [String],
-    default: 'New Member',
+    default: ['New Member'],
     enum: titles
   },
   badges: {
     type: [String],
     enum: badges, // TODO: Figure out badges and enumify
-    default: 'General'
+    default: ['General']
   },
   firstname: {
     type: String,
