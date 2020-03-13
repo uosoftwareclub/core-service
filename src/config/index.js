@@ -10,6 +10,7 @@ module.exports = {
     uri: process.env.MONGOURI,
     testURI: process.env.MONGOTESTURI
   },
+  default_profile_pic_uri: process.env.DEFAULT_PROFILE_PIC_URL,
   transporter: {
     service: process.env.TRANSPORTER_SERVICE,
     email: process.env.TRANSPORTER_EMAIL,

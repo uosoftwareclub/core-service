@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   badges: {
     type: [String],
-    enum: badges, // TODO: Figure out badges and enumify
+    enum: badges,
     default: ['General']
   },
   firstname: {
