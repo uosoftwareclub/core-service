@@ -1,5 +1,6 @@
 const { body, validationResult } = require('express-validator');
 const titles = require('../enums/enums.titles');
+const months = require('../enums/enums.months');
 
 /**
  * We want to check the title the client is using is the same as the enums.
@@ -14,13 +15,29 @@ const validateTitle = (title) => {
 };
 
 /**
+ * We want to check if the graduation is valid
+ * @param {graduation} - the graduation object
+ * @param {boolean} - True if months is in months enum, and year is a number.
+ */
+const validateGraduation = ({month, year}) => {
+  if (!months.includes(month)) {
+    throw new Error(`The month string must be one of: ${months}.`);
+  }
+  if (typeof year !== 'number') {
+    throw new Error('The year must be of type number.');
+  }
+  return true;
+}
+
+/**
  * @returns {Array} - certain express-validator rules.
  */
 const userValidationRules = () => [
     body('title').custom( (value, { req }) => validateTitle(req.body.title)),
     body('firstname').notEmpty().withMessage('Must add a first name.'),
     body('lastname').notEmpty().withMessage('Must add a last name.'),
-    body('username').notEmpty().withMessage('Added a username')
+    body('username').notEmpty().withMessage('Must add a username.'),
+    body('graduation').custom( (value, { req }) => validateGraduation(req.body.graduation))
   ];
 
   /**

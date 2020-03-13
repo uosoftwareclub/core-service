@@ -10,12 +10,12 @@ const userSchema = new Schema({
     // TODO: Set default avatar picture
   },
   title: {
-    type: String,
+    type: [String],
     default: 'New Member',
     enum: titles
   },
   badges: {
-    type: String,
+    type: [String],
     enum: badges, // TODO: Figure out badges and enumify
     default: 'General'
   },
@@ -31,6 +31,18 @@ const userSchema = new Schema({
     type: String,
     required: [true, 'You have to add a username'],
     unique: true
+  },
+  graduation: {
+    type: Object,
+    required: [true, 'You have to add a graduation date.'],
+    year: {
+      type: Number,
+      required: [true, 'Year is needed for graduation.']
+    },
+    month: {
+      type: String,
+      required: [true, 'Month is needed for graduation.']
+    }
   },
   description: {
     type: String
