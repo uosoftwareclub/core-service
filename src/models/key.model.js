@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const keySchema = new Schema({
   key: {
     type: String,
-    unique: true
+    unique: true,
   },
   read: {
-    type: Boolean
+    type: Boolean,
   },
   write: {
-    type: Boolean
-  }
-})
+    type: Boolean,
+  },
+});
 
 module.exports = mongoose.model('Key', keySchema);

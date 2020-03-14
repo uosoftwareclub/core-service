@@ -21,7 +21,7 @@ const logger = createLogger({
       format: 'YYYY-MM-DD HH:mm:ss',
     }),
     format.splat(),
-    format.printf(info => `${info.timestamp} [${info.level}] ${info.message}`),
+    format.printf((info) => `${info.timestamp} [${info.level}] ${info.message}`),
   ),
 });
 

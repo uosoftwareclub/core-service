@@ -1,36 +1,34 @@
-
-
-const mongoose = require('mongoose')
-const config = require('../config')
-mongoose.Promise = require('bluebird')
+const mongoose = require('mongoose');
+const config = require('../config');
+mongoose.Promise = require('bluebird');
 
 mongoose.connection.on('connected', () => {
-  console.log('MongoDB is connected')
-})
+  console.log('MongoDB is connected');
+});
 
 mongoose.connection.on('error', (err) => {
-  console.log(`Could not connect to MongoDB because of ${err}`)
-  process.exit(1)
-})
+  console.log(`Could not connect to MongoDB because of ${err}`);
+  process.exit(1);
+});
 
 if (config.env === 'dev') {
-  mongoose.set('debug', true)
+  mongoose.set('debug', true);
 }
 
 exports.connect = () => {
-  const mongoURI = (config.env === 'prod' || 'dev' ? config.mongo.uri : config.mongo.testURI)
+  const mongoURI = (config.env === 'prod' || 'dev' ? config.mongo.uri : config.mongo.testURI);
 
   if (!mongoURI) {
     return null;
   }
-  
+
   mongoose.connect(mongoURI, {
     keepAlive: 1,
     useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+    useUnifiedTopology: true,
+  });
 
-  mongoose.set('useCreateIndex', true)
+  mongoose.set('useCreateIndex', true);
 
-  return mongoose.connection
-}
+  return mongoose.connection;
+};

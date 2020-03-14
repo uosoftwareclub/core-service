@@ -1,4 +1,4 @@
-require('dotenv').config() // load .env file
+require('dotenv').config(); // load .env file
 
 module.exports = {
   port: process.env.PORT,
@@ -8,12 +8,12 @@ module.exports = {
   hostname: process.env.HOSTNAME,
   mongo: {
     uri: process.env.MONGOURI,
-    testURI: process.env.MONGOTESTURI
+    testURI: process.env.MONGOTESTURI,
   },
   default_profile_pic_uri: process.env.DEFAULT_PROFILE_PIC_URL,
   transporter: {
     service: process.env.TRANSPORTER_SERVICE,
     email: process.env.TRANSPORTER_EMAIL,
-    password: process.env.TRANSPORTER_PASSWORD
-  }
-}
+    password: process.env.TRANSPORTER_PASSWORD,
+  },
+};
