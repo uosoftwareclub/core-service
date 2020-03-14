@@ -1,13 +1,27 @@
 module.exports = {
-    extends: ['airbnb-base', 'prettier'],
-    rules: {
-        "no-unused-vars": 'off',
-        "prefer-destructuring": 'off',
-        "consistent-return": 'off',
-        "no-console": "off",
-        "import/order": "error"
-    },
-    env: {
-        "jest": true
-    }
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+  },
+  extends: [
+    'airbnb-base',
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    ecmaVersion: 2018,
+  },
+  env: {
+    "mocha": true
+  },
+  rules: {
+    "no-unused-vars": "off",
+    "no-console": "off",
+    "consistent-return": "off",
+    "no-constant-condition": "off",
+    "max-len": ["error", { "code": 150 }]
+  },
 };

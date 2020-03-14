@@ -19,7 +19,7 @@ const validateTitle = (title) => {
  * @param {graduation} - the graduation object
  * @param {boolean} - True if months is in months enum, and year is a number.
  */
-const validateGraduation = ({month, year}) => {
+const validateGraduation = ({ month, year }) => {
   if (!months.includes(month)) {
     throw new Error(`The month string must be one of: ${months}.`);
   }
@@ -27,20 +27,20 @@ const validateGraduation = ({month, year}) => {
     throw new Error('The year must be of type number.');
   }
   return true;
-}
+};
 
 /**
  * @returns {Array} - certain express-validator rules.
  */
 const userValidationRules = () => [
-    body('title').custom( (value, { req }) => validateTitle(req.body.title)),
-    body('firstname').notEmpty().withMessage('Must add a first name.'),
-    body('lastname').notEmpty().withMessage('Must add a last name.'),
-    body('username').notEmpty().withMessage('Must add a username.'),
-    body('graduation').custom( (value, { req }) => validateGraduation(req.body.graduation))
-  ];
+  body('title').custom((value, { req }) => validateTitle(req.body.title)),
+  body('firstname').notEmpty().withMessage('Must add a first name.'),
+  body('lastname').notEmpty().withMessage('Must add a last name.'),
+  body('username').notEmpty().withMessage('Must add a username.'),
+  body('graduation').custom((value, { req }) => validateGraduation(req.body.graduation)),
+];
 
-  /**
+/**
    * Validates the user req.body.
    */
 const validate = (req, res, next) => {
@@ -49,15 +49,14 @@ const validate = (req, res, next) => {
     return next();
   }
   const extractedErrors = [];
-  errors.array().map(err => extractedErrors.push({ [err.param]: err.msg }));
+  errors.array().map((err) => extractedErrors.push({ [err.param]: err.msg }));
 
   return res.status(422).json({
-    errors: extractedErrors
+    errors: extractedErrors,
   });
 };
 
 module.exports = {
   userValidationRules,
-  validate
+  validate,
 };
-
