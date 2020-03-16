@@ -2,7 +2,6 @@ const Key = require('../models/key.model');
 const errorHandler = require('./error-handler');
 
 const auth = (req, res, next) => {
-  console.log('In Authorization Middleware');
   const token = req.header('auth-token');
   if (!token) return res.status(401).send('Access Denied');
 
