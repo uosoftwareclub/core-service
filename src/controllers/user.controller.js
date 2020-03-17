@@ -21,9 +21,36 @@ exports.add_user = async (req, res, next) => {
 
   User.create(newUser, (err, user) => {
     if (err) {
+      return errorHandler.handleMongoError(err, req, res, next);
+    }
+    res.status(201).send(user);
+  });
+};
+
+exports.get_all_users = async (req, res, next) => {
+  User.find({}, (err, users) => {
+    if (err) {
+      return errorHandler.handleMongoError(err, req, res, next);
+    }
+    if (users.length === 0) {
+      res.status(400).send('DB is empty.');
+    } else {
+      res.send(users);
+    }
+  });
+};
+
+exports.get_user = async (req, res, next) => {
+  const { username } = req.params;
+  User.findOne({ username }, (err, user) => {
+    if (err) {
       console.log(err);
       return errorHandler.handleMongoError(err, req, res, next);
     }
-    res.send(user);
+    if (!user) {
+      res.status(400).send('User is not in the database.');
+    } else {
+      res.send(user);
+    }
   });
 };
