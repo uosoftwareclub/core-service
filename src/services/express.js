@@ -7,14 +7,16 @@ const bodyParser = require('body-parser');
 const apiRouter = require('../routes/api');
 const errorHandler = require('../middlewares/error-handler');
 const config = require('../config');
+const logger = require('../utils/logger');
 
 const app = express();
+const apiVersion = 'v0';
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
 
-const apiVersion = 'v0';
-if (config.env !== 'test') app.use(morgan('combined'));
+if (config.env !== 'test') app.use(morgan('combined', { stream: logger.stream }));
 
 app.use(`/${apiVersion}`, apiRouter);
 app.use(errorHandler.handleNotFound);
