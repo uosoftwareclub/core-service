@@ -23,8 +23,7 @@ exports.add_user = async (req, res, next) => {
     if (err) {
       return errorHandler.handleMongoError(err, req, res, next);
     }
-    res.status(201);
-    res.send(user);
+    res.status(201).send(user);
   });
 };
 
@@ -33,7 +32,7 @@ exports.get_all_users = async (req, res, next) => {
     if (err) {
       return errorHandler.handleMongoError(err, req, res, next);
     }
-    if (!users) {
+    if (users.length === 0) {
       res.status(400).send('DB is empty.');
     } else {
       res.send(users);
