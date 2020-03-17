@@ -6,14 +6,14 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "./node_modules/.bin/nodemon src/index.js",
-    "lint": "./node_modules/.bin/eslint src/* ./node_modules/.bin/eslint test/**/*.js",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --exit"
+    "lint": "./node_modules/.bin/eslint src/* ./node_modules/.bin/eslint test/*",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha ./test --recursive --exit"
   },
   "keywords": [],
   "author": "UOSC Dev Team",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cross-env": "^5.1.3",
     "eslint": "^6.8.0",
@@ -24,7 +24,7 @@
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^5.0.1",
+    "mocha": "^7.1.0",
     "nodemon": "^1.14.12",
     "prettier": "^1.9.2"
   },
@@ -41,10 +41,13 @@
     "http-status": "^1.0.1",
     "joi": "^13.1.2",
     "jsonwebtoken": "^8.5.1",
+    "mongo-unit": "^2.0.0",
     "mongoose": "^5.0.7",
     "mongoose-error-handler": "^1.0.0",
     "morgan": "^1.9.0",
     "mustache": "^3.0.1",
+    "sinon": "^9.0.1",
+    "supertest": "^4.0.2",
     "uuid": "^3.3.2",
     "winston": "^3.2.1"
   }

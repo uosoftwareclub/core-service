@@ -9,6 +9,7 @@ module.exports = {
   mongo: {
     uri: process.env.MONGOURI,
     testURI: process.env.MONGOTESTURI,
+    unitTestURI: process.env.MONGOUNITTESTURI,
   },
   default_profile_pic_uri: process.env.DEFAULT_PROFILE_PIC_URL,
   transporter: {
