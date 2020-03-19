@@ -27,3 +27,4 @@ jobs:
 env:
   NODE_ENV: test
   CI: true
+  LOG_DIR: $HOME
