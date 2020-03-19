@@ -20,10 +20,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm lint
+    - run: npm run lint
     - run: npm run build --if-present
     - run: echo Running Test on $NODE_ENV
-    - run: npm test
+    - run: npm run test
       env:
         NODE_ENV: test
         CI: true
