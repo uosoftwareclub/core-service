@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "./node_modules/.bin/nodemon src/index.js",
     "lint": "./node_modules/.bin/eslint src/**/*.js ./node_modules/.bin/eslint test/**/*.js",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha ./test --recursive --exit"
+    "test": "./node_modules/.bin/mocha ./test --recursive --exit"
   },
   "keywords": [],
   "author": "UOSC Dev Team",

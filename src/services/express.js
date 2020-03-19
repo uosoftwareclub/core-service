@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
 
+console.log(config.env);
+
 if (config.env !== 'test') app.use(morgan('combined', { stream: logger.stream }));
 
 app.use(`/${apiVersion}`, apiRouter);
