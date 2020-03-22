@@ -24,7 +24,7 @@ exports.handleError = (err, req, res, next) => {
 };
 
 exports.handleMongoError = (err, req, res, next) => {
-  logger.error(` ${req.method} | ${err.code} | ${req.originalUrl} ${err.errmsg}`);
+  logger.error(` ${req.method} | ${err.code} | ${req.originalUrl} | ${err.errmsg}`);
   res.status(409);
   res.json({
     message: err.errmsg,

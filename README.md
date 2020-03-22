@@ -27,10 +27,7 @@
   lastname: String,
   username: String,
   description: String,
-  rank: [{
-    contest_number: Integer,
-    placing: Integer
-  }]
+  rank: [Number]
 }
 ```
 

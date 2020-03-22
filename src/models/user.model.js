@@ -47,16 +47,9 @@ const userSchema = new Schema({
   description: {
     type: String,
   },
-  rank: [{
-    contest_number: {
-      type: Number,
-      required: [true, 'Contest Number is required for a rank.'],
-    },
-    placing: {
-      type: Number,
-      required: [true, 'Placing is required for a rank'],
-    },
-  }],
+  rank: {
+    type: [Number],
+  },
 }, {
   timestamps: true,
 });

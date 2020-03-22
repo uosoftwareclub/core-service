@@ -54,3 +54,18 @@ exports.get_user = async (req, res, next) => {
     }
   });
 };
+
+exports.update_ranking = async (req, res, next) => {
+  const { username } = req.params;
+  const { ranks } = req.body;
+  User.findOneAndUpdate({ username }, { rank: ranks }, { new: true }, (err, user) => {
+    if (err) {
+      console.log(err);
+      return errorHandler.handleMongoError(err, req, res, next);
+    }
+    if (!user) {
+      res.status(400).send(`Cannot find "${username}".`);
+    }
+    res.send(user);
+  });
+};
