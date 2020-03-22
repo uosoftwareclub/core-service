@@ -1,6 +1,7 @@
 const express = require('express');
 const userController = require('../../controllers/user.controller');
-const { userValidationRules, validate } = require('../../validation/user.validation');
+const { userValidationRules, validateUser } = require('../../validation/user.validation');
+const { rankingValidationRules, validateRanking } = require('../../validation/ranking.validation');
 const { auth } = require('../../middlewares/authorization');
 
 const router = express.Router();
@@ -11,6 +12,8 @@ router.get('/', auth, userController.get_all_users);
 
 router.get('/:username', auth, userController.get_user);
 
-router.post('/', userValidationRules(), validate, auth, userController.add_user);
+router.post('/:username', rankingValidationRules(), validateRanking, auth, userController.update_ranking);
+
+router.post('/', userValidationRules(), validateUser, auth, userController.add_user);
 
 module.exports = router;
