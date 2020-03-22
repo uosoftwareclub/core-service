@@ -12,7 +12,7 @@ router.get('/', auth, userController.get_all_users);
 
 router.get('/:username', auth, userController.get_user);
 
-router.post('/:username', rankingValidationRules(), validateRanking, auth, userController.update_ranking);
+router.post('/:username/ranks', rankingValidationRules(), validateRanking, auth, userController.update_ranking);
 
 router.post('/', userValidationRules(), validateUser, auth, userController.add_user);
 
