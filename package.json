@@ -25,10 +25,11 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^7.1.0",
-    "nodemon": "^1.14.12",
+    "nodemon": "^2.0.4",
     "prettier": "^1.9.2"
   },
   "dependencies": {
+    "aws-serverless-express": "^3.3.8",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
