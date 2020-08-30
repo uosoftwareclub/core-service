@@ -29,6 +29,7 @@
     "prettier": "^1.9.2"
   },
   "dependencies": {
+    "aws-serverless-express": "^3.3.8",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
