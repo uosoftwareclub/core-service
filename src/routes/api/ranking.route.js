@@ -4,6 +4,6 @@ const { auth } = require('../../middlewares/authorization');
 
 const router = express.Router();
 
-router.get('/top_rankings', auth, rankingController.get_top_rankings);
+router.get('/featured', auth, rankingController.get_top_rankings);
 
 module.exports = router;
