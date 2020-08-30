@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "./node_modules/.bin/nodemon src/index.js",
+    "build": "rm -rf dist && webpack --mode development",
     "lint": "./node_modules/.bin/eslint src/**/*.js ./node_modules/.bin/eslint test/**/*.js",
     "test": "./node_modules/.bin/mocha ./test --recursive --exit"
   },
@@ -26,7 +27,10 @@
     "eslint-plugin-standard": "^3.0.1",
     "mocha": "^7.1.0",
     "nodemon": "^2.0.4",
-    "prettier": "^1.9.2"
+    "prettier": "^1.9.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
     "aws-serverless-express": "^3.3.8",
