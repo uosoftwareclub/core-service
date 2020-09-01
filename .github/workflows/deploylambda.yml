@@ -4,7 +4,7 @@
 name: Build to Lambda
 
 on:
-  pull_request:
+  push:
     branches: [master]
 
 jobs:
@@ -21,7 +21,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run build
-      - run: sh ./build/build_lambda.sh
+      - name: Build and Publish
+        env:
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_PAGER: ''
+        run: sh ./build/build_lambda.sh
 env:
   NODE_ENV: test
   CI: true
