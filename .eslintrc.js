@@ -4,6 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  ignorePatterns: ['dist/**/*'],
   extends: ['airbnb-base'],
   globals: {
     Atomics: 'readonly',
