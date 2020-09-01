@@ -10,6 +10,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].js',
+    libraryTarget: 'umd'
   },
   target: 'node',
   node: {
