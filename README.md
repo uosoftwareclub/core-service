@@ -3,7 +3,7 @@
 ## Setup
 
 - Install NodeJS
-- Install `npm` or `yarn`
+- Install `npm`
 - Get .env file (email zi.s.gao@gmail.com)
 - Run yarn or npm install
 - Run `yarn run dev` or `npm run dev`
