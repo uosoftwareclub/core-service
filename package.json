@@ -25,7 +25,7 @@
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-standard": "^3.0.1",
-    "mocha": "^7.1.0",
+    "mocha": "^10.2.0",
     "nodemon": "^2.0.4",
     "prettier": "^1.9.2",
     "webpack": "^4.44.1",
